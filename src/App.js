@@ -14,10 +14,4 @@ function App() {
   );
 }
 
-class HornedBeast extends Component {
-  render() {
-    return <h1>I am a horned beast with title of {this.props.title}</h1>;
-  }
-}
-
 export default App;
