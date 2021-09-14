@@ -33,23 +33,21 @@ class Main extends Component {
   // needs to know the title pass in somehow...
   render() {
     return (
-      // <div>
-      //   <h1>I am Main my message is {this.props.message}</h1>
-      //   <HornedBeast />
-      // </div>
       <>
-        {/* <h1>I am Main my message is {this.props.message}</h1> */}
         <HornedBeast
           title={`${hornedBeasts[0].title}`}
           description={`${hornedBeasts[0].description}`}
+          src={`${hornedBeasts[0].image_url}`}
         />
         <HornedBeast
           title={`${hornedBeasts[1].title}`}
           description={`${hornedBeasts[1].description}`}
+          src={`${hornedBeasts[1].image_url}`}
         />
         <HornedBeast
           title={`${hornedBeasts[2].title}`}
           description={`${hornedBeasts[2].description}`}
+          src={`${hornedBeasts[2].image_url}`}
         />
       </>
     );
@@ -60,13 +58,8 @@ class HornedBeast extends Component {
   render() {
     return (
       <>
-        <h2>I am a horned beast with title of {this.props.title}</h2>
-        <h2>My image is</h2>
-        <img
-          src="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg"
-          alt={"narwhal"}
-        />
-        <h2>My description is</h2>
+        <h2>{this.props.title}</h2>
+        <img src={this.props.src} />
         <p>{this.props.description}</p>
       </>
     );
