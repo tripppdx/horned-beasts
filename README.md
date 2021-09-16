@@ -4,8 +4,6 @@ This project was written fulfill the requirements of Lab: Class 02 for Code Fell
 
 ### The additional features include:
 
-<<<<<<< HEAD
-
 #### Feature #1: Display images from JSON file
 
 ```
