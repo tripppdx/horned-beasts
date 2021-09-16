@@ -1,22 +1,24 @@
 import { Component } from "react";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default class Main extends Component {
   render() {
     const bios = this.props.beastBios;
 
     return (
-      <Container>
-        {bios.map((beast) => (
-          <HornedBeast
-            title={beast.title}
-            description={beast.description}
-            src={beast.image_url}
-          />
-        ))}
+      <Container fluid>
+        <Row xs={1} sm={2} md={3} lg={4}>
+          {bios.map((beast) => (
+            <HornedBeast
+              title={beast.title}
+              description={beast.description}
+              src={beast.image_url}
+            />
+          ))}
+        </Row>
       </Container>
     );
   }
@@ -39,17 +41,17 @@ class HornedBeast extends Component {
 
   render() {
     return (
-      <>
-        <h2>{this.props.title}</h2>
-        <Image
-          onClick={this.handleClick}
-          src={this.props.src}
-          alt="some horned beast"
-          width="20%"
-        />
-        <p>{this.props.description}</p>
-        <h3>❤️ {this.state.likes}</h3>
-      </>
+      <Card>
+        <Card.Img variant="top" src={this.props.src} alt="some horned beast" />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>{this.props.description}</Card.Text>
+
+          <Button onClick={this.handleClick} variant="secondary">
+            ❤️ {this.state.likes}
+          </Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
