@@ -1,69 +1,59 @@
 import { Component } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-const hornedBeasts = [
-  {
-    image_url:
-      "http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg",
-    title: "UniWhal",
-    description: "A unicorn and a narwhal nuzzling their horns",
-    keyword: "narwhal",
-    horns: 1,
-  },
-
-  {
-    image_url:
-      "https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80",
-    title: "Rhino Family",
-    description: "Mother (or father) rhino with two babies",
-    keyword: "rhino",
-    horns: 2,
-  },
-
-  {
-    image_url:
-      "https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg",
-    title: "Unicorn Head",
-    description: "Someone wearing a creepy unicorn head mask",
-    keyword: "unicorn",
-    horns: 1,
-  },
-];
-
-class Main extends Component {
-  // needs to know the title pass in somehow...
+export default class Main extends Component {
   render() {
+    const bios = this.props.beastBios;
+
     return (
-      <>
-        <HornedBeast
-          title={`${hornedBeasts[0].title}`}
-          description={`${hornedBeasts[0].description}`}
-          src={`${hornedBeasts[0].image_url}`}
-        />
-        <HornedBeast
-          title={`${hornedBeasts[1].title}`}
-          description={`${hornedBeasts[1].description}`}
-          src={`${hornedBeasts[1].image_url}`}
-        />
-        <HornedBeast
-          title={`${hornedBeasts[2].title}`}
-          description={`${hornedBeasts[2].description}`}
-          src={`${hornedBeasts[2].image_url}`}
-        />
-      </>
+      <Container fluid>
+        <Row xs={1} sm={2} md={3} lg={4}>
+          {bios.map((beast) => (
+            <HornedBeast
+              title={beast.title}
+              description={beast.description}
+              src={beast.image_url}
+            />
+          ))}
+        </Row>
+      </Container>
     );
   }
 }
 
 class HornedBeast extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: 0,
+    };
+  }
+
+  handleClick = (event) => {
+    // toggle the status between Yay and Nay
+    this.setState({
+      likes: this.state.likes + 1,
+    });
+  };
+
   render() {
     return (
-      <>
-        <h2>{this.props.title}</h2>
-        <img src={this.props.src} />
-        <p>{this.props.description}</p>
-      </>
+      <Card>
+        <Card.Img variant="top" src={this.props.src} alt="some horned beast" />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>{this.props.description}</Card.Text>
+
+          <Button onClick={this.handleClick} variant="secondary">
+            ❤️ {this.state.likes}
+          </Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
 
-export default Main;
+// export default Main;
