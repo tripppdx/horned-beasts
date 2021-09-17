@@ -11,6 +11,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedBeast: {},
       showModal: false,
     };
   }
@@ -23,13 +24,25 @@ export default class App extends Component {
     this.setState({ showModal: false });
   };
 
+  setBeastModal = beast => {
+    this.setState({ selectedBeast: beast });
+  };
+
   render() {
     return (
       <Container fluid>
         <Header title="Horned Beasts" />
-        <Main beastBios={beastBios} />
+        <Main
+          beastBios={beastBios}
+          showModal={this.showModal}
+          setBeastModal={this.setBeastModal}
+        />
         <Footer text="Author: Harvey Lucas" />
-        <BeastModal />
+        <BeastModal
+          showModal={this.state.showModal}
+          hideModal={this.hideModal}
+          beast={this.state.selectedBeast}
+        />
       </Container>
     );
   }
