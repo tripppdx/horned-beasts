@@ -24,6 +24,7 @@ export default class App extends Component {
     this.setState({ showModal: false });
   };
 
+  // pass beast
   setBeastModal = beast => {
     this.setState({ selectedBeast: beast });
   };

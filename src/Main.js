@@ -6,8 +6,6 @@ import Button from 'react-bootstrap/Button';
 
 export default class Main extends Component {
   render() {
-    // const bios = this.props.beastBios;
-
     return (
       <Container fluid>
         <Row xs={1} sm={2} md={3} lg={4}>

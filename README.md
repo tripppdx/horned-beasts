@@ -1,6 +1,6 @@
 # Horned Beasts
 
-This project was written fulfill the requirements of Lab: Class 03 for Code Fellows 301. It extends the functionality of the Lab: Classes 01 and 02 projects. These labs use React to display the images of certain horned animals and associated information. The user can like a particular beast and click an image for additional information.
+This project was written fulfill the requirements of Lab: Class 03 for Code Fellows 301. It extends the functionality of the Lab: Classes 01 and 02 projects. These labs use React to display the images of certain horned animals and associated information. The user can like a particular beast as well as click on an image for additional information.
 
 ### Additional Feature:
 
