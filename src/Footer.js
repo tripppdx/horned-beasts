@@ -1,6 +1,6 @@
-import { Component } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
+import { Component } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 class Footer extends Component {
   render() {

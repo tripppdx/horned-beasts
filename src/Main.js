@@ -1,8 +1,8 @@
-import { Component } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Component } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export default class Main extends Component {
   render() {
@@ -11,7 +11,7 @@ export default class Main extends Component {
     return (
       <Container fluid>
         <Row xs={1} sm={2} md={3} lg={4}>
-          {bios.map((beast) => (
+          {bios.map(beast => (
             <HornedBeast
               title={beast.title}
               description={beast.description}
@@ -32,7 +32,7 @@ class HornedBeast extends Component {
     };
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     // toggle the status between Yay and Nay
     this.setState({
       likes: this.state.likes + 1,
@@ -55,5 +55,3 @@ class HornedBeast extends Component {
     );
   }
 }
-
-// export default Main;
