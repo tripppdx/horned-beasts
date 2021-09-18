@@ -13,6 +13,7 @@ export default class App extends Component {
     this.state = {
       selectedBeast: {},
       showModal: false,
+      beastBios: beastBios,
     };
   }
 
@@ -29,14 +30,20 @@ export default class App extends Component {
     this.setState({ selectedBeast: beast });
   };
 
+  displayBeasts = beastArray => {
+    this.setState({ beastBios: beastArray });
+  };
+
+  // fn that accepts filtered array and sets the state of beastbios with new filtered array
   render() {
     return (
       <Container fluid>
         <Header title="Horned Beasts" />
         <Main
-          beastBios={beastBios}
+          beastBios={this.state.beastBios}
           showModal={this.showModal}
           setBeastModal={this.setBeastModal}
+          displayBeasts={this.displayBeasts}
         />
         <Footer text="Author: Harvey Lucas" />
         <BeastModal
